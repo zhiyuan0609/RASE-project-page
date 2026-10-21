@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RASE: Reliability-Aware Suppression of Error Propagation for aerial-ground cooperative 3D detection.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#ffffff">
+  <title>RASE | Aerial-Ground Cooperative 3D Detection</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="content.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="RASE home"><span class="mark" aria-hidden="true"></span>RASE</a>
+    <nav aria-label="Page navigation"><a href="#demo">Video</a><a href="#abstract">Abstract</a><a href="#figures">Figures</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero container" id="top">
+      <p class="eyebrow">AERIAL–GROUND COOPERATIVE PERCEPTION</p>
+      <h1>RASE</h1>
+      <p class="paper-title">Reliability-Aware Suppression<br class="desktop-break"> of Error Propagation</p>
+      <p class="authors">Anonymous Authors</p>
+      <p class="hero-description">Robust cooperative 3D detection from complementary aerial and ground LiDAR observations.</p>
+    </section>
+
+    <section class="container demo" id="demo" aria-labelledby="video-title">
+      <div class="section-heading"><h2 id="video-title"><strong>RASE-SIM Datasets:</strong> Aerial and Ground Cooperative perception <strong>LiDAR Datasets</strong></h2></div>
+      <figure class="video-card">
+        <video id="simulation-video" controls playsinline preload="metadata" poster="assets/simulation-poster.webp" aria-label="RASE-sim aerial-ground cooperative LiDAR demonstration">
+          <source src="assets/simulation.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/simulation.mp4">Download the demonstration.</a>
+        </video>
+        <figcaption>RASE-sim is built on the CARLAAir simulation platform, featuring diverse road environments (Small Town, Complex Urban, Grid Urban, and High-Rise Urban), weather conditions (Clear, Rain, and Fog), and UAV altitudes of 30, 50, and 60 m.</figcaption>
+      </figure>
+      <div class="chapters" aria-label="Jump to a scene in the video">
+        <button type="button" data-time="0"><span>00:00</span>High-Rise Urban · Clear</button>
+        <button type="button" data-time="8"><span>00:08</span>High-Rise Urban · Rain</button>
+        <button type="button" data-time="16"><span>00:16</span>Small Town · Fog</button>
+        <button type="button" data-time="21"><span>00:21</span>Small Town · Clear</button>
+        <button type="button" data-time="26"><span>00:26</span>Complex Urban · Clear</button>
+        <button type="button" data-time="31"><span>00:31</span>Grid Urban · Clear</button>
+      </div>
+    </section>
+
+    <section class="abstract-section" id="abstract" aria-labelledby="abstract-title">
+      <div class="reading-column"><p class="eyebrow">THE PAPER</p><h2 id="abstract-title">Abstract</h2><p id="abstract-text"></p><noscript><p>The abstract is available in content.js. Enable JavaScript to display it here.</p></noscript></div>
+    </section>
+
+    <section class="container overview-section" id="overview" aria-labelledby="overview-title">
+      <div class="reading-column">
+        <h2 id="overview-title">Overview</h2>
+        <p><strong>RASE (Reliability-Aware Suppression of Error Propagation)</strong> is a framework for reliable aerial-ground cooperative 3D object detection. It addresses <strong>Collaborative Perception Error Accumulation (CPEA)</strong>, where unreliable information from heterogeneous agents can interfere with cooperative fusion and degrade detection performance.</p>
+        <p>The key idea behind RASE is simple: <strong>not all information shared between ground vehicles and UAVs is equally reliable.</strong> Rather than treating every collaborative feature equally, RASE estimates spatial unreliability and adaptively reduces the influence of potentially erroneous information while preserving useful complementary observations.</p>
+        <p>This project presents the RASE framework, experimental evaluations on <strong>V2U4Real</strong> and <strong>AirV2X</strong>, and <strong>RASE-sim</strong>, a simulated aerial-ground cooperative perception dataset developed for cross-domain generalization research.</p>
+      </div>
+    </section>
+
+    <section class="container figures-section" id="figures" aria-labelledby="figures-title">
+      <div class="section-heading"><h2 id="figures-title">RASE: Method &amp; results</h2></div>
+      <div class="carousel" id="figure-carousel" role="region" aria-roledescription="carousel" aria-label="Paper figures" tabindex="0">
+        <div class="slide-stage" id="slides"></div>
+        <button class="carousel-arrow previous" id="previous" type="button" aria-label="Previous figure"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+        <button class="carousel-arrow next" id="next" type="button" aria-label="Next figure"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="carousel-controls"><div id="dots" class="dots" aria-label="Select a figure"></div><p id="slide-status" role="status" aria-live="polite" aria-atomic="true"></p></div>
+      <p class="figure-hint">Use the arrows or swipe to browse. Select a figure to enlarge it.</p>
+      <noscript><p>View the figures directly: <a href="assets/figure-1.webp">Motivation</a>, <a href="assets/figure-2.webp">Method overview</a>, <a href="assets/figure-3.webp">Unreliability estimation</a>, <a href="assets/figure-4.webp">Dynamic loss weighting</a>, <a href="assets/figure-5.webp">Latency comparison</a>, <a href="assets/figure-6.webp">Detection examples</a>, <a href="assets/figure-7.webp">AirV2X comparison</a>.</p></noscript>
+    </section>
+  </main>
+  <footer class="container"><span>RASE</span><p>Reliability-Aware Suppression of Error Propagation</p><a href="#top">Back to top ↑</a></footer>
+  <dialog id="figure-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-heading"><h2 id="dialog-title">Paper figure</h2><button id="close-dialog" type="button" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button></div>
+    <img id="dialog-image" alt="">
+    <p id="dialog-caption"></p>
+  </dialog>
+</body>
+</html>
