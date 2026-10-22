@@ -105,21 +105,55 @@
 
   const detectionVideo = document.getElementById("detection-video");
   const detectionToggle = document.querySelector(".detection-toggle");
+  const detectionCard = document.querySelector(".detection-card");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let detectionLoaded = false;
+  let detectionInView = false;
+  let detectionUserPaused = false;
   const updateDetectionToggle = () => {
     const paused = detectionVideo.paused;
+    detectionCard.classList.toggle("is-paused", paused);
     document.getElementById("detection-toggle-icon").setAttribute("d", paused ? "M8 5l11 7-11 7Z" : "M9 5v14M15 5v14");
     detectionToggle.setAttribute("aria-label", `${paused ? "Play" : "Pause"} detection video`);
   };
+  const loadDetection = () => {
+    if (detectionLoaded) return;
+    detectionVideo.querySelectorAll("source[data-src]").forEach((source) => {
+      source.src = source.dataset.src;
+      delete source.dataset.src;
+    });
+    detectionLoaded = true;
+    detectionVideo.load();
+  };
+  const playDetection = () => {
+    loadDetection();
+    detectionVideo.play().catch(updateDetectionToggle);
+  };
   detectionToggle.addEventListener("click", () => {
-    if (detectionVideo.paused) detectionVideo.play().catch(updateDetectionToggle);
-    else detectionVideo.pause();
+    if (detectionVideo.paused) {
+      detectionUserPaused = false;
+      playDetection();
+    } else {
+      detectionUserPaused = true;
+      detectionVideo.pause();
+    }
   });
   detectionVideo.addEventListener("play", updateDetectionToggle);
   detectionVideo.addEventListener("pause", updateDetectionToggle);
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    detectionVideo.autoplay = false;
-    detectionVideo.pause();
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      detectionInView = entries[0].isIntersecting;
+      if (detectionInView && !document.hidden && !reducedMotion.matches && !detectionUserPaused) playDetection();
+      else detectionVideo.pause();
+    }, { threshold: 0.15 }).observe(detectionCard);
+  } else if (!reducedMotion.matches) {
+    detectionInView = true;
+    playDetection();
   }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) detectionVideo.pause();
+    else if (detectionInView && !reducedMotion.matches && !detectionUserPaused) playDetection();
+  });
   updateDetectionToggle();
 
   const video = document.getElementById("simulation-video");

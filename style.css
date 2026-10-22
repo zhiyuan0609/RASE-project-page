@@ -13,6 +13,7 @@
 .detection-card video{display:block;width:100%;height:100%;aspect-ratio:1;object-fit:contain}
 .detection-toggle{position:absolute;right:10px;bottom:10px;border:1px solid #ffffff50;border-radius:7px;padding:6px 10px;color:#fff;background:#111c;opacity:0;transition:opacity .15s;font-size:12px}
 .detection-card:hover .detection-toggle,.detection-card:focus-within .detection-toggle{opacity:1}
+.detection-card.is-paused .detection-toggle{opacity:1}
 .detection-toggle svg{display:block;width:16px;height:16px}
 @media(max-width:900px){.overview-layout{grid-template-columns:minmax(220px,280px) minmax(0,1fr);gap:28px}}
 @media(max-width:760px){.overview-layout{grid-template-columns:1fr;gap:25px}.detection-card{max-width:360px;justify-self:center}.detection-toggle{opacity:1}}
