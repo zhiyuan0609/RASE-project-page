@@ -103,6 +103,25 @@
   });
   select(0);
 
+  const detectionVideo = document.getElementById("detection-video");
+  const detectionToggle = document.querySelector(".detection-toggle");
+  const updateDetectionToggle = () => {
+    const paused = detectionVideo.paused;
+    document.getElementById("detection-toggle-icon").setAttribute("d", paused ? "M8 5l11 7-11 7Z" : "M9 5v14M15 5v14");
+    detectionToggle.setAttribute("aria-label", `${paused ? "Play" : "Pause"} detection video`);
+  };
+  detectionToggle.addEventListener("click", () => {
+    if (detectionVideo.paused) detectionVideo.play().catch(updateDetectionToggle);
+    else detectionVideo.pause();
+  });
+  detectionVideo.addEventListener("play", updateDetectionToggle);
+  detectionVideo.addEventListener("pause", updateDetectionToggle);
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    detectionVideo.autoplay = false;
+    detectionVideo.pause();
+  }
+  updateDetectionToggle();
+
   const video = document.getElementById("simulation-video");
   const chapters = [...document.querySelectorAll("[data-time]")];
   const seek = (time) => {

@@ -53,11 +53,20 @@
     </section>
 
     <section class="container overview-section" id="overview" aria-labelledby="overview-title">
-      <div class="reading-column">
-        <h2 id="overview-title">Overview</h2>
+      <h2 id="overview-title">Overview</h2>
+      <div class="overview-layout">
+        <figure class="detection-card">
+          <video id="detection-video" autoplay loop muted playsinline preload="metadata" width="1080" height="1080" poster="assets/detection-poster.webp" aria-label="Five-second continuous RASE detection sequence on V2U4Real; red prediction boxes and green ground-truth boxes">
+            <source src="assets/detection-square.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="assets/detection-square.mp4">Download the detection sequence.</a>
+          </video>
+          <button class="detection-toggle" type="button" aria-controls="detection-video" aria-label="Pause detection video"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="detection-toggle-icon" d="M9 5v14M15 5v14"/></svg></button>
+        </figure>
+        <div class="overview-copy">
         <p><strong>RASE (Reliability-Aware Suppression of Error Propagation)</strong> is a framework for reliable aerial-ground cooperative 3D object detection. It addresses <strong>Collaborative Perception Error Accumulation (CPEA)</strong>, where unreliable information from heterogeneous agents can interfere with cooperative fusion and degrade detection performance.</p>
         <p>The key idea behind RASE is simple: <strong>not all information shared between ground vehicles and UAVs is equally reliable.</strong> Rather than treating every collaborative feature equally, RASE estimates spatial unreliability and adaptively reduces the influence of potentially erroneous information while preserving useful complementary observations.</p>
         <p>This project presents the RASE framework, experimental evaluations on <strong>V2U4Real</strong> and <strong>AirV2X</strong>, and <strong>RASE-sim</strong>, a simulated aerial-ground cooperative perception dataset developed for cross-domain generalization research.</p>
+        </div>
       </div>
     </section>
 
