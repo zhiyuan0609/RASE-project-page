@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#ffffff">
   <title>RASE | Aerial-Ground Cooperative 3D Detection</title>
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=original-quality">
+  <link rel="stylesheet" href="style.css?v=resource-buttons">
   <script src="content.js" defer></script>
   <script src="main.js?v=original-quality" defer></script>
 </head>
@@ -27,6 +27,20 @@
       <p class="paper-title">Reliability-Aware Suppression<br class="desktop-break"> of Error Propagation</p>
       <p class="authors">Anonymous Authors</p>
       <p class="hero-description">Robust cooperative 3D detection from complementary aerial and ground LiDAR observations.</p>
+      <div class="resource-links" role="group" aria-label="Research resources">
+        <button class="resource-link" type="button" disabled aria-label="Paper (not available)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><span>Paper</span>
+        </button>
+        <button class="resource-link" type="button" disabled aria-label="arXiv (not available)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 12 18M18 3l-5 7M6 21l5-7"/></svg><span>arXiv</span>
+        </button>
+        <a class="resource-link" id="code-link" href="https://anonymous.4open.science/r/RASE-6FD8/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="RASE core code (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg><span>Code</span>
+        </a>
+        <button class="resource-link" id="dataset-link" type="button" disabled aria-label="Hugging Face dataset (coming soon)" title="Dataset coming soon">
+          <span aria-hidden="true">🤗</span><span>Hugging Face</span>
+        </button>
+      </div>
     </section>
 
     <section class="container demo" id="demo" aria-labelledby="video-title">
