@@ -9,6 +9,7 @@
 .resource-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:29px}
 .resource-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 17px;border:1px solid #202b3d;border-radius:11px;background:#202b3d;color:#fff;font-size:15px;font-weight:600;line-height:1.2;text-decoration:none;box-shadow:0 2px 4px #1723421a}
 .resource-link svg{width:18px;height:18px;flex:none;stroke-width:1.8}
+.resource-link .github-mark{fill:currentColor;stroke:none}
 a.resource-link:hover{background:#35435b;border-color:#35435b}
 .resource-link:disabled{cursor:default;background:#535d6e;border-color:#535d6e;color:#eef0f4;box-shadow:none}
 @media(max-width:760px){.resource-links{gap:9px;margin-top:23px}.resource-link{padding:10px 13px;font-size:14px}}
